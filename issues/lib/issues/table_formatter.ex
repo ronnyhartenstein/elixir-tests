@@ -5,8 +5,8 @@ defmodule Issues.TableFormatter do
   @doc """
   Nimmt eine Liste mit Zeilen (rows), wo jede Zeile (row) ein HashDict ist,
   und ein Liste mit Spaltennamen (headers).
-  Gibt eine Tabelle mit den Daten auf STDOUT aus
-  - aus jeder Zeile (`row`), identifiziert durch jeden Spalte (`header`).
+  Gibt eine Tabelle mit den Daten auf STDOUT aus.
+  Aus jeder Zeile (`row`), identifiziert durch jeden Spalte (`header`).
   Jede Spalte identifizierte eine Spalte (`column`), und diese Spalten (`columns`) werden
   aus den `rows` extrahiert.
   Wir berechnen die Breite jeder Spalte damit die breiteste passt.
