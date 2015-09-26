@@ -12,10 +12,14 @@ defmodule Issues.GithubIssues do
     "#{@github_url}/repos/#{user}/#{project}/issues"
   end
 
-  def handle_response(%{status_code: 200, body: body}) do
+  #def handle_response(%{status_code: 200, body: body}) do
+  def handle_response({:ok, %HTTPoison.Response{status_code: 200, body: body}}) do
     { :ok, :jsx.decode(body) }
   end
-  def handle_response(%{status_code: ___, body: body}) do
+  def handle_response({:ok, %HTTPoison.Response{status_code: ___, body: body}}) do
     { :error, :jsx.decode(body) }
+  end
+  def handle_response({_, _}) do
+    { :error, false }
   end
 end
